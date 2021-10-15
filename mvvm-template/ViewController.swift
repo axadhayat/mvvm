@@ -9,18 +9,26 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    //Outlets
+
     @IBOutlet weak var backgroundImageview: UIImageView!
     @IBOutlet weak var movieNameLbl: UILabel!
     @IBOutlet weak var releaseDateLbl: UILabel!
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var artistNameLbl: UILabel!
     
+    //Url
+
     private let viewModel = ViewModel("https://itunes.apple.com/search?term=AvengersEndgame&country=US&entity=movie")
     
+    //Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bindUI()
     }
+    
+    //View bindings
     
     private func bindUI(){
         viewModel.backgroundImage.bind { [weak self] backgroundImage in
